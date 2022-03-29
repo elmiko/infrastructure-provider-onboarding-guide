@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Infrastructure Metadata Service - OpenShift Infrastructure Provider Onboarding Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Infrastructure Metadata Service";
+        var mkdocs_page_input_path = "infrastructure-metadata-service/index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> OpenShift Infrastructure Provider Onboarding Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../preparation/">Preparation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../information-gathering/">Information Gathering</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../openshift-enhancement/">OpenShift Enhancement</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rhcos/">RHCOS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installer/">Installer</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cloud-controller-manager/">Cloud Controller Manager</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../container-storage-interface-driver/">Container Storage Interface Driver</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../machine-api-controllers/">Machine API Controllers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../network-ingress-dns/">Network Ingress and DNS</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Infrastructure Metadata Service</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#about-metadata-service">About Metadata Service</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#securing-access-to-metadata-service">Securing access to Metadata Service</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#openshift-sdn">OpenShift SDN</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ovn-kubernetes">OVN Kubernetes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#questions">Questions</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../continuous-integration-and-testing/">Continuous Integration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../component-infrastructure/">Component Infrastructure</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../red-hat-relationship/">Red Hat Relationship</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../release/">Release</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">OpenShift Infrastructure Provider Onboarding Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Infrastructure Metadata Service</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="infrastructure-metadata-service">Infrastructure Metadata Service</h1>
+<h2 id="about-metadata-service">About Metadata Service</h2>
+<p>Several cloud providers support a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html">metadata service</a> for their instances. The metadata service allows users to access their instance metadata. Instance metadata is any data associated with the instance such as hostname, security groups, user data etc. that can be used to configure or manage the instance.</p>
+<h2 id="securing-access-to-metadata-service">Securing access to Metadata Service</h2>
+<p>If your cloud provider runs a metadata service, you would typically want pods created in 
+OpenShift to not be able to access the metadata service. 
+OpenShift's native CNI plugins (OpenShift SDN and OVN-Kubernetes) provide a way to secure
+your metadata service by adding IP Tables rules to block access. </p>
+<h3 id="openshift-sdn">OpenShift SDN</h3>
+<p>To block access to the metadata service from pods in OpenShift, please add your
+metadata service IP based on your platform to the <a href="https://github.com/openshift/sdn/blob/master/pkg/cmd/openshift-sdn-cni/openshift-sdn.go#L121">generateIPTablesRules</a> function.</p>
+<h3 id="ovn-kubernetes">OVN Kubernetes</h3>
+<p>To block access to the metadata service from pods in OpenShift, please add your
+metadata service IP based on your platform to the <a href="https://github.com/openshift/ovn-kubernetes/blob/master/go-controller/pkg/cni/OCP_HACKS.go#L35">setupIPTablesBlocks</a> function.</p>
+<h3 id="questions">Questions</h3>
+<p>Questions can be directed to the OpenShift Networking team via the Red Hat partners you are working with.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../network-ingress-dns/" class="btn btn-neutral float-left" title="Network Ingress and DNS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../continuous-integration-and-testing/" class="btn btn-neutral float-right" title="Continuous Integration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../network-ingress-dns/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../continuous-integration-and-testing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
